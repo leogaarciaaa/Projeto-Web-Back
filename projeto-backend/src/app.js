@@ -1,47 +1,41 @@
-// var createError = require('http-errors');
-// var express = require('express');
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
+import express from "express";
+import cookieParser from "cookie-parser";
+import { AuthRoute } from "./routes/auth.js";
+import cors from "cors";
+import mongoose from "mongoose";
 
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-
-// var app = express();
-
-// // view engine setup
-
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
-
-// module.exports = app;
-const express = require('express');
-const cors = require('cors');
-
+// Cria uma instância do aplicativo Express
 const app = express();
 
+// Adiciona middleware para analisar JSON no corpo das requisições
+app.use(express.json());
+
+// Adiciona middleware para analisar cookies nas requisições
+app.use(cookieParser());
+
+// Adiciona middleware para lidar com requisições CORS
 app.use(cors());
 
-module.exports = app;
+// Define rotas para autenticação e manipulação de usuários
+app.use("/auth", AuthRoute);
+
+// Obtém a porta do ambiente ou utiliza a porta 3333 como padrão
+const port = process.env.PORT || 3333;
+
+// Conecta-se ao banco de dados MongoDB
+mongoose
+  .connect("mongodb://127.0.0.1:27017/db")
+  .then(() => {
+    console.log("Database connected");
+
+    // Inicia o servidor Express na porta especificada
+    app.listen(port, () => {
+      console.log(`Server running at:${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log("Database connection failed:", error);
+  });
+
+
+export { app };
