@@ -47,7 +47,7 @@ const userSchema = mongoose.Schema(
  * @type {object}
  * @memberof module:userModel
  */
-export const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 /**
  * Exporta o esquema e o modelo para serem utilizados em outros módulos.
