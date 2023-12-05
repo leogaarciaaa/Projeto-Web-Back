@@ -1,19 +1,6 @@
 import jwt from "jsonwebtoken";
 import { User } from "../model/userModel.js";
 
-/**
- * @function verifyAdmin
- * @async
- * @param {Object} req - Objeto de requisição Express.
- * @param {Object} res - Objeto de resposta Express.
- * @param {Function} next - Função de middleware Express para chamar o próximo middleware na cadeia.
- * @returns {Promise<void>} - Promessa que representa a conclusão da função.
- * @description
- *   Esta função middleware verifica se o usuário autenticado possui privilégios de administrador.
- *   Utiliza o token de autorização fornecido no cabeçalho da requisição para identificar o usuário.
- *   Retorna um erro se o token for inválido ou se o usuário não for um administrador.
- * @throws {Error} - Lança um erro se ocorrer um problema durante a verificação de administrador.
- */
 export const verifyAdmin = async (req, res, next) => {
   // Extrai o token de autorização do cabeçalho da requisição
   const token = req.headers.authorization;
@@ -22,7 +9,7 @@ export const verifyAdmin = async (req, res, next) => {
     // Decodifica o token para obter o subject (sub)
     const { sub } = jwt.decode(
       token,
-      "3dc190e6-b357-4bc0-8175-7561790a4ada",
+      process.env.SECRET_KEY,
       (error, _) => {
         if (error) {
           // Se ocorrer um erro durante a decodificação, retorna uma resposta de erro com status 498

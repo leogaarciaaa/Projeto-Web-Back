@@ -1,17 +1,5 @@
 import mongoose from 'mongoose';
-/**
- * @module userModel
- * @description
- *   Módulo que define o esquema de usuário e o modelo associado para interação com o banco de dados MongoDB.
- *   Utiliza a biblioteca mongoose para a modelagem de dados e a conexão com o banco de dados.
- */
 
-/**
- * Esquema de usuário para representar a estrutura de dados no banco de dados.
- * @name userSchema
- * @type {object}
- * @memberof module:userModel
- */
 const userSchema = mongoose.Schema(
   {
     // Nome do usuário
@@ -41,17 +29,28 @@ const userSchema = mongoose.Schema(
   }
 );
 
-/**
- * Modelo de usuário associado ao esquema de usuário.
- * @name User
- * @type {object}
- * @memberof module:userModel
- */
 const User = mongoose.model('User', userSchema);
 
-/**
- * Exporta o esquema e o modelo para serem utilizados em outros módulos.
- * @type {object}
- * @memberof module:userModel
- */
-export { userSchema, User };
+const UserOperations = {
+  find: async function (email) {
+    const userFound = await User.find(email);
+    return userFound;
+  },
+
+  create: async function (user) {
+    const userCreated = await User.create(user);
+    return userCreated;
+  },
+
+  deleteOne: async function (user) {
+    const userDeleted = await User.deleteOne(user);
+    return userDeleted;
+  },
+
+  findById: async function (id) {
+    const userFound = await User.findById(id);
+    return userFound;
+  }
+}
+
+export { userSchema, User, UserOperations };
