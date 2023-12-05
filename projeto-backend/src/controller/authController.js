@@ -1,6 +1,6 @@
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { User, UserOperations } from "../model/userModel.js";
+import { UserOperations } from "../model/userModel.js";
 
 export const register = async (req, res) => {
   // Extrai as informações do usuário do corpo da requisição

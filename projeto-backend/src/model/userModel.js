@@ -50,7 +50,12 @@ const UserOperations = {
   findById: async function (id) {
     const userFound = await User.findById(id);
     return userFound;
+  },
+
+  findByIdAndUpdate: async function (id, data) {
+    const userUpdated = await User.findByIdAndUpdate(id, data);
+    return userUpdated;
   }
 }
 
-export { userSchema, User, UserOperations };
+export { UserOperations };

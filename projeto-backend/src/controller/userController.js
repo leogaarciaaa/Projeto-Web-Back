@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import { User, UserOperations } from "../model/userModel.js";
+import { UserOperations } from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
 
@@ -43,7 +43,7 @@ export const updateUser = async (req, res) => {
 
   try {
     // Busca o usuário no banco de dados com base no ID fornecido
-    const user = await User.findById(id);
+    const user = await UserOperations.findById(id);
 
     // Decodifica o token para obter o subject (sub)
     const { sub } = jwt.decode(
@@ -64,7 +64,7 @@ export const updateUser = async (req, res) => {
       const passwordHash = await bcryptjs.hash(password, 8);
 
       // Atualiza as informações do usuário no banco de dados
-      const userUpdated = await User.findByIdAndUpdate(id, {
+      const userUpdated = await UserOperations.findByIdAndUpdate(id, {
         email,
         name,
         password: passwordHash,
@@ -96,7 +96,7 @@ export const updateUserAndAdmin = async (req, res) => {
     const passwordHash = await bcryptjs.hash(password, 8);
 
     // Atualiza as informações do usuário no banco de dados com base no ID fornecido
-    const userUpdated = await User.findByIdAndUpdate(id, {
+    const userUpdated = await UserOperations.findByIdAndUpdate(id, {
       name,
       email,
       password: passwordHash,

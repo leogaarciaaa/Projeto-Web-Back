@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { User } from "../model/userModel.js";
+import { UserOperations } from "../model/userModel.js";
 
 export const verifyAdmin = async (req, res, next) => {
   // Extrai o token de autorização do cabeçalho da requisição
@@ -19,7 +19,7 @@ export const verifyAdmin = async (req, res, next) => {
     );
 
     // Busca o usuário no banco de dados com base no endereço de e-mail obtido do token
-    const user = await User.find({ email: sub });
+    const user = await UserOperations.find({ email: sub });
 
     // Verifica se o usuário é um administrador
     if (user[0].admin) {
