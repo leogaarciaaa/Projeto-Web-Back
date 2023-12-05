@@ -64,7 +64,7 @@ export const login = async (req, res) => {
     // Gera um token JWT com o endereço de e-mail como subject e um tempo de expiração de 60 segundos
     const token = jwt.sign({}, process.env.SECRET_KEY, {
       subject: userAlreadyExists[0].email,
-      //expiresIn: "6000s",
+      expiresIn: "600s",
     });
 
     // Retorna uma resposta JSON com status 201 e o token gerado

@@ -1,5 +1,7 @@
+import bcryptjs from "bcryptjs";
 import { User, UserOperations } from "../model/userModel.js";
 import jwt from "jsonwebtoken";
+
 
 export const deleteUser = async (req, res) => {
   // Extrai o endereço de e-mail da requisição
@@ -57,11 +59,14 @@ export const updateUser = async (req, res) => {
 
     // Verifica se o usuário associado ao token é o mesmo que está sendo atualizado
     if (user.email === sub) {
+
+      // Gera um hash da senha do usuário usando bcrypt
+      const passwordHash = await bcryptjs.hash(password, 8);
       // Atualiza as informações do usuário no banco de dados
       const userUpdated = await User.findByIdAndUpdate(id, {
         email,
         name,
-        password,
+        password: passwordHash,
       });
 
       // Retorna uma resposta JSON com status 200 e os dados do usuário atualizado
