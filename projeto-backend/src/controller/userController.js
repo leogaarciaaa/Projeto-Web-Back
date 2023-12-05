@@ -62,6 +62,7 @@ export const updateUser = async (req, res) => {
 
       // Gera um hash da senha do usuário usando bcrypt
       const passwordHash = await bcryptjs.hash(password, 8);
+
       // Atualiza as informações do usuário no banco de dados
       const userUpdated = await User.findByIdAndUpdate(id, {
         email,
@@ -91,11 +92,14 @@ export const updateUserAndAdmin = async (req, res) => {
   const { email, name, password } = req.body;
 
   try {
+    // Gera um hash da senha do usuário usando bcrypt
+    const passwordHash = await bcryptjs.hash(password, 8);
+
     // Atualiza as informações do usuário no banco de dados com base no ID fornecido
     const userUpdated = await User.findByIdAndUpdate(id, {
       name,
       email,
-      password,
+      password: passwordHash,
     });
 
     // Retorna uma resposta JSON com status 200 e os dados do usuário atualizado
