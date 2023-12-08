@@ -5,6 +5,7 @@ import { AuthRoute } from "./routes/auth.js";
 import { installApiRoute } from './routes/installApi.js';
 import { userRoute } from './routes/user.js';
 import { guestRoute } from './routes/guest.js';
+import { roomRoute } from './routes/room.js';
 import { dbConnect } from "./database/db.js";
 import cors from "cors";
 //import mongoose from "mongoose";
@@ -26,6 +27,7 @@ app.use("/auth", AuthRoute);
 app.use("/install", installApiRoute);
 app.use("/user", userRoute);
 app.use("/guest", guestRoute);
+app.use("/room", roomRoute);
 
 await dbConnect();
 
