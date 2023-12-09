@@ -2,29 +2,24 @@ import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(
   {
-    // Nome do usuário
     name: {
       type: String,
-      required: [true, 'Name is required'], // Campo obrigatório
+      required: [true, 'Name is required'],
     },
-    // Endereço de e-mail do usuário
     email: {
       type: String,
-      required: [true, 'Email is required'], // Campo obrigatório
+      required: [true, 'Email is required'],
     },
-    // Senha do usuário
     password: {
       type: String,
-      required: [true, 'Password is required'], // Campo obrigatório
+      required: [true, 'Password is required'],
     },
-    // Indica se o usuário possui privilégios de administrador
     admin: {
       type: Boolean,
-      required: [true, 'Admin status is required'], // Campo obrigatório
+      required: [true, 'Admin status is required'],
     },
   },
   {
-    // Adiciona automaticamente os campos `createdAt` e `updatedAt` para rastreamento de tempo
     timestamps: true,
   }
 );

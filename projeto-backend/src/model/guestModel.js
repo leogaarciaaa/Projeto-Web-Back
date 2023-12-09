@@ -2,38 +2,32 @@ import mongoose from 'mongoose';
 
 const guestSchema = mongoose.Schema(
   {
-    // Nome do hóspede
     name: {
       type: String,
-      required: [true, 'Name is required'], // Campo obrigatório
+      required: [true, 'Name is required'],
     },
-    // Endereço de e-mail do hóspede
     email: {
       type: String,
-      required: [true, 'Email is required'], // Campo obrigatório
+      required: [true, 'Email is required'],
     },
-    // CPF do hóspede
     cpf: {
       type: String,
-      required: [true, 'CPF is required'], // Campo obrigatório
+      required: [true, 'CPF is required'],
     },
-    // Data de nascimento do hóspede
     birth_date: {
       type: Date,
-      required: [true, 'Birth date is required'], // Campo obrigatório
+      required: [true, 'Birth date is required'],
     },
-    // Senha do hóspede
     password: {
       type: String,
-      required: [true, 'Password is required'], // Campo obrigatório
+      required: [true, 'Password is required'],
     },
     admin: {
       type: Boolean,
-      required: [true, 'Admin status is required'], // Campo obrigatório
+      required: [true, 'Admin status is required'],
     },
   },
   {
-    // Adiciona automaticamente os campos `createdAt` e `updatedAt` para rastreamento de tempo
     timestamps: true,
   }
 );

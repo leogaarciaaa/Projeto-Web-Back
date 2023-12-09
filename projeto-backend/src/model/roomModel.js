@@ -2,30 +2,25 @@ import mongoose from 'mongoose';
 
 const roomSchema = mongoose.Schema(
   {
-    // Tipo de acomodação
     type: {
       type: String,
-      required: [true, 'Type is required'], // Campo obrigatório
+      required: [true, 'Type is required'],
     },
-    // Capacidade máxima do quarto
     capaticy_number: {
       type: Number,
-      required: [true, 'Max guest number is required'], // Campo obrigatório
+      required: [true, 'Capacity number is required'],
     },
-    // Preço da diária da acomodação
     price_per_night: {
       type: Number,
-      required: [true, 'Price is required'], // Campo obrigatório
+      required: [true, 'Price is required'],
     },
-    // ID do admin criador da acomodação
     user_admin_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: [true, 'User id is required'], // Campo obrigatório
+      required: [true, 'User id is required'],
     }
   },
   {
-    // Adiciona automaticamente os campos `createdAt` e `updatedAt` para rastreamento de tempo
     timestamps: true,
   }
 );
@@ -38,13 +33,13 @@ const RoomOperations = {
     return roomFound;
   },
 
-  create: async function (guest) {
-    const roomCreated = await Room.create(guest);
+  create: async function (room) {
+    const roomCreated = await Room.create(room);
     return roomCreated;
   },
 
-  deleteOne: async function (guest) {
-    const roomDeleted = await Room.deleteOne(guest);
+  deleteOne: async function (room) {
+    const roomDeleted = await Room.deleteOne(room);
     return roomDeleted;
   },
 

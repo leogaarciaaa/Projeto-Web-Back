@@ -9,7 +9,6 @@ const dbConnect = async () => {
     await mongoose.connect("mongodb://127.0.0.1:27017/db")
     console.log("Database connected");
 
-    // Inicia o servidor Express na porta especificada
     app.listen(port, () => {
     console.log(`Server running at port: ${port}`);
     });
