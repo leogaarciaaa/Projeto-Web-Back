@@ -28,8 +28,13 @@ const roomSchema = mongoose.Schema(
 const Room = mongoose.model('Room', roomSchema);
 
 const RoomOperations = {
-  find: async function (email) {
-    const roomFound = await Room.find(email);
+  findAll: async function() {
+    const roomsList = await Room.find();
+    return roomsList;
+  },
+
+  find: async function (type) {
+    const roomFound = await Room.find(type);
     return roomFound;
   },
 
