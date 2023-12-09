@@ -18,6 +18,10 @@ const guestSchema = mongoose.Schema(
       type: Date,
       required: [true, 'Birth date is required'],
     },
+    dependent_guests_number: {
+      type: Number,
+      required: [true, 'Dependent guests number is required'],
+    },
     password: {
       type: String,
       required: [true, 'Password is required'],

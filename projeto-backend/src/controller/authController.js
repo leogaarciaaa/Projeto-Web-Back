@@ -90,7 +90,7 @@ export const registerAdmin = async (req, res) => {
 
 
 export const registerGuest = async (req, res) => {
-  const { name, email, cpf, birthDate, password } = req.body;
+  const { name, email, cpf, birthDate, dependentGuestsNumber, password } = req.body;
 
   try {
     const guestAlreadyExists = await GuestOperations.find({ email });
@@ -106,6 +106,7 @@ export const registerGuest = async (req, res) => {
       email,
       cpf,
       birth_date: birthDate,
+      dependent_guests_number: dependentGuestsNumber,
       password: passwordHash,
       admin: false,
     };

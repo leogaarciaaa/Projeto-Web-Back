@@ -30,7 +30,7 @@ export const updateGuest = async (req, res) => {
   const { id } = req.params;
 
   const token = req.headers.authorization;
-  const { email, name, cpf, birthDate, password } = req.body;
+  const { email, name, cpf, birthDate, dependentGuestsNumber, password } = req.body;
 
   try {
     const guest = await GuestOperations.findById(id);
@@ -54,6 +54,7 @@ export const updateGuest = async (req, res) => {
         name,
         cpf,
         birth_date: birthDate,
+        dependent_guests_number: dependentGuestsNumber,
         password: passwordHash,
       });
 
