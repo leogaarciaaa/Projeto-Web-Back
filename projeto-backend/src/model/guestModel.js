@@ -26,10 +26,6 @@ const guestSchema = mongoose.Schema(
       type: String,
       required: [true, 'Password is required'],
     },
-    admin: {
-      type: Boolean,
-      required: [true, 'Admin status is required'],
-    },
   },
   {
     timestamps: true,
@@ -39,6 +35,11 @@ const guestSchema = mongoose.Schema(
 const Guest = mongoose.model('Guest', guestSchema);
 
 const GuestOperations = {
+  findAll: async function () {
+    const guestsList = await Guest.find();
+    return guestsList;
+  },
+
   find: async function (email) {
     const guestFound = await Guest.find(email);
     return guestFound;

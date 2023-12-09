@@ -37,7 +37,7 @@ export const createRoom = async (req, res) => {
 
     const room = {
       type,
-      capaticy_number: capacityNumber,
+      capacity_number: capacityNumber,
       price_per_night: pricePerNight,
       user_admin_id: userAlreadyExists[0]._id
     }
@@ -94,7 +94,7 @@ export const updateRoom = async (req, res) => {
 
     const roomUpdated = {
       type,
-      capaticy_number: capacityNumber,
+      capacity_number: capacityNumber,
       price_per_night: pricePerNight,
       user_admin_id: userAlreadyExists[0]._id
     }

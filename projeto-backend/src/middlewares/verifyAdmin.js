@@ -16,6 +16,9 @@ export const verifyAdmin = async (req, res, next) => {
     );
 
     const user = await UserOperations.find({ email: sub });
+    if (!user[0]) {
+      return res.status(401).json({ message: "You need admin access" });
+    }
 
     if (user[0].admin) {
       next();

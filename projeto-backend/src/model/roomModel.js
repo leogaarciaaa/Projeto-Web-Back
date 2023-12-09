@@ -6,7 +6,7 @@ const roomSchema = mongoose.Schema(
       type: String,
       required: [true, 'Type is required'],
     },
-    capaticy_number: {
+    capacity_number: {
       type: Number,
       required: [true, 'Capacity number is required'],
     },

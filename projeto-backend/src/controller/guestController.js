@@ -2,6 +2,16 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { GuestOperations } from "../model/guestModel.js";
 
+export const listGuests = async (req, res) => {
+  try{
+    const guests = await GuestOperations.findAll();
+
+    return res.status(200).json({ data: guests })
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error: " + error.message });
+  }
+}
+
 export const deleteGuest = async (req, res) => {
   const { email } = req.body;
 

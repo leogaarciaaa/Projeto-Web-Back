@@ -108,7 +108,6 @@ export const registerGuest = async (req, res) => {
       birth_date: birthDate,
       dependent_guests_number: dependentGuestsNumber,
       password: passwordHash,
-      admin: false,
     };
 
     const createdGuest = await GuestOperations.create(guest);
