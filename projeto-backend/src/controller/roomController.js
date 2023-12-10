@@ -65,9 +65,7 @@ export const deleteRoom = async (req, res) => {
     });
 
     if (roomDeleted.deletedCount !== 0) {
-      res.status(200).json({
-        message: "Room deleted",
-      });
+      res.status(200).json({ message: "Room deleted" });
     }
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });
@@ -92,15 +90,15 @@ export const updateRoom = async (req, res) => {
     );
     const userAlreadyExists = await UserOperations.find({ email: sub });
 
-    const roomUpdated = {
+    const roomToUpdate = {
       type,
       capacity_number: capacityNumber,
       price_per_night: pricePerNight,
       user_admin_id: userAlreadyExists[0]._id
     }
 
-    const createdRoom = await RoomOperations.findByIdAndUpdate(id, roomUpdated);
-    return res.status(200).json({ data: createdRoom });
+    const roomUpdated = await RoomOperations.findByIdAndUpdate(id, roomToUpdate);
+    return res.status(200).json({ data: roomUpdated });
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });
   }

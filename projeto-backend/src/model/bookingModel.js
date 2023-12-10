@@ -51,19 +51,19 @@ const BookingOperations = {
     return bookingCreated;
   },
 
-  deleteOne: async function (booking) {
-    const bookingDeleted = await Booking.deleteOne(booking);
-    return bookingDeleted;
-  },
-
   findById: async function (id) {
     const bookingFound = await Booking.findById(id);
     return bookingFound;
   },
 
+  findByIdAndDelete: async function (id) {
+    const bookingFound = await Booking.findByIdAndDelete(id);
+    return bookingFound;
+  },
+
   findByIdAndUpdate: async function (id, data) {
-    const roomUpdated = await Room.findByIdAndUpdate(id, data);
-    return roomUpdated;
+    const bookingUpdated = await Booking.findByIdAndUpdate(id, data);
+    return bookingUpdated;
   }
 }
 
