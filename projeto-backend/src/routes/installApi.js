@@ -15,4 +15,4 @@ router.get('/', async (req, res) => {
 
 
 
-export { router as installApiRoute}
+export { router as installApiRoute };

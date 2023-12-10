@@ -13,4 +13,4 @@ router.post('/create', verifyToken, verifyGuest, createBooking);
 router.put('/update/:id', verifyToken, verifyGuest, updateBooking);
 router.delete('/delete', verifyToken, verifyGuestOrAdmin, deleteBooking);
 
-export { router as bookingRoute};
+export { router as bookingRoute };

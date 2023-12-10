@@ -7,6 +7,7 @@ import { userRoute } from './routes/user.js';
 import { guestRoute } from './routes/guest.js';
 import { roomRoute } from './routes/room.js';
 import { bookingRoute } from './routes/booking.js';
+import { feedbackRoute } from './routes/feedback.js';
 import { dbConnect } from "./database/db.js";
 import cors from "cors";
 
@@ -24,6 +25,7 @@ app.use("/user", userRoute);
 app.use("/guest", guestRoute);
 app.use("/room", roomRoute);
 app.use("/booking", bookingRoute);
+app.use("/feedback", feedbackRoute);
 
 await dbConnect();
 

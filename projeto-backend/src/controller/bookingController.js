@@ -226,7 +226,7 @@ export const updateBooking = async (req, res) => {
       const bookingUpdated = await BookingOperations.findByIdAndUpdate(id, bookingToUpdate);
       return res.status(200).json({ message: "Booking successfully updated", data: bookingUpdated });
     } else {
-      return res.status(400).json({ message: "Unable to update booking" });
+      return res.status(401).json({ message: "Unable to update booking" });
     }
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });

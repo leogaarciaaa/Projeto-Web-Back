@@ -10,4 +10,4 @@ router.post('/create', verifyToken, verifyAdmin, createRoom);
 router.put('/update/:id', verifyToken, verifyAdmin, updateRoom);
 router.delete('/delete', verifyToken, verifyAdmin, deleteRoom);
 
-export { router as roomRoute};
+export { router as roomRoute };
