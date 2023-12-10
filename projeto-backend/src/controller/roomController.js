@@ -3,8 +3,15 @@ import { UserOperations } from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
 export const listRooms = async (req, res) => {
+  const page = parseInt(req.params.page);
+  const limit = parseInt(req.params.limit);
+
   try{
-    const rooms = await RoomOperations.findAll();
+    const skip = (page - 1) * limit;
+    if(limit !== 5 && limit !== 10 && limit !== 30) {
+      throw new Error("Please, select a limit of 5, 10 or 30 results per page.");
+    }
+    const rooms = await RoomOperations.findAllAndPage(skip, limit);
 
     return res.status(200).json({ data: rooms })
   } catch (error) {

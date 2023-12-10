@@ -28,8 +28,8 @@ const roomSchema = mongoose.Schema(
 const Room = mongoose.model('Room', roomSchema);
 
 const RoomOperations = {
-  findAll: async function() {
-    const roomsList = await Room.find();
+  findAllAndPage: async function(skip, limit) {
+    const roomsList = await Room.find().skip(skip).limit(limit);;
     return roomsList;
   },
 

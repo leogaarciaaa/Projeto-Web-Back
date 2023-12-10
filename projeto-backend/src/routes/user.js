@@ -5,7 +5,7 @@ import { deleteUser, updateUser, updateUserAndAdmin } from "../controller/userCo
 
 const router = Router();
 
-router.post("/delete", verifyToken, verifyAdmin, deleteUser);
+router.delete("/delete", verifyToken, verifyAdmin, deleteUser);
 router.put("/update/:id", verifyToken, updateUser);
 router.put("/update-admin/:id", verifyToken, verifyAdmin, updateUserAndAdmin);
 

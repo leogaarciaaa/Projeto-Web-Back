@@ -46,8 +46,18 @@ const BookingOperations = {
     return bookingsList;
   },
 
+  findAllAndPage: async function(skip, limit) {
+    const bookingsList = await Booking.find().skip(skip).limit(limit);
+    return bookingsList;
+  },
+
   find: async function(guest_id) {
     const bookingsList = await Booking.find(guest_id);
+    return bookingsList;
+  },
+
+  findAndPage: async function(guest_id, skip, limit) {
+    const bookingsList = await Booking.find(guest_id).skip(skip).limit(limit);
     return bookingsList;
   },
 

@@ -3,8 +3,15 @@ import jwt from "jsonwebtoken";
 import { GuestOperations } from "../model/guestModel.js";
 
 export const listGuests = async (req, res) => {
+  const page = parseInt(req.params.page);
+  const limit = parseInt(req.params.limit);
+
   try{
-    const guests = await GuestOperations.findAll();
+    const skip = (page - 1) * limit;
+    if(limit !== 5 && limit !== 10 && limit !== 30) {
+      throw new Error("Please, select a limit of 5, 10 or 30 results per page.");
+    }
+    const guests = await GuestOperations.findAllAndPage(skip, limit);
 
     return res.status(200).json({ data: guests })
   } catch (error) {

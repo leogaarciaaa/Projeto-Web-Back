@@ -5,9 +5,9 @@ import { listRooms, createRoom, deleteRoom, updateRoom } from "../controller/roo
 
 const router = Router();
 
-router.get('/list-all', listRooms);
+router.get('/list-all/:page/:limit', listRooms);
 router.post('/create', verifyToken, verifyAdmin, createRoom);
 router.put('/update/:id', verifyToken, verifyAdmin, updateRoom);
-router.post('/delete', verifyToken, verifyAdmin, deleteRoom);
+router.delete('/delete', verifyToken, verifyAdmin, deleteRoom);
 
 export { router as roomRoute};

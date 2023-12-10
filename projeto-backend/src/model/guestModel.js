@@ -35,8 +35,8 @@ const guestSchema = mongoose.Schema(
 const Guest = mongoose.model('Guest', guestSchema);
 
 const GuestOperations = {
-  findAll: async function () {
-    const guestsList = await Guest.find();
+  findAllAndPage: async function (skip, limit) {
+    const guestsList = await Guest.find().skip(skip).limit(limit);;
     return guestsList;
   },
 

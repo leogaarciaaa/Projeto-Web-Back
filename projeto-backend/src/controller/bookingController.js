@@ -4,10 +4,18 @@ import { BookingOperations } from "../model/bookingModel.js";
 import jwt from "jsonwebtoken";
 
 export const listBookings = async (req, res) => {
-  try{
-    const bookings = await BookingOperations.findAll();
+  const page = parseInt(req.params.page);
+  const limit = parseInt(req.params.limit);
 
-    return res.status(200).json({ data: bookings })
+  try{
+    const skip = (page - 1) * limit;
+    if(limit !== 5 && limit !== 10 && limit !== 30) {
+      throw new Error("Please, select a limit of 5, 10 or 30 results per page.");
+    }
+
+    const bookings = await BookingOperations.findAllAndPage(skip, limit);
+
+    return res.status(200).json({ data: bookings });
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });
   }
@@ -15,6 +23,9 @@ export const listBookings = async (req, res) => {
 
 export const listBookingsByGuest = async (req, res) => {
   const token = req.headers.authorization;
+
+  const page = parseInt(req.params.page);
+  const limit = parseInt(req.params.limit);
 
   try{
 
@@ -31,9 +42,14 @@ export const listBookingsByGuest = async (req, res) => {
     const guest = await GuestOperations.find({ email: sub });
 
     if(guest[0].email === sub) {
-      const booking = await BookingOperations.find({ guest_id: guest[0]._id});
+      const skip = (page - 1) * limit;
+      if(limit !== 5 && limit !== 10 && limit !== 30) {
+        throw new Error("Please, select a limit of 5, 10 or 30 results per page.");
+      }
 
-      return res.status(200).json({ data: booking });
+      const bookings = await BookingOperations.findAndPage({ guest_id: guest[0]._id } , skip, limit);
+
+      return res.status(200).json({ data: bookings });
     } else {
       return res.status(401).json({ message: "Bookings are not available to your account"});
     }
