@@ -70,7 +70,7 @@ export const updateGuest = async (req, res) => {
 
       return res.status(200).json({ data: guestUpdated });
     } else {
-      return res.status(400).json({ message: "Unable to update guest" });
+      return res.status(401).json({ message: "Unable to update guest" });
     }
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });

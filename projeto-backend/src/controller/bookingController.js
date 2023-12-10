@@ -13,6 +13,35 @@ export const listBookings = async (req, res) => {
   }
 }
 
+export const listBookingsByGuest = async (req, res) => {
+  const token = req.headers.authorization;
+
+  try{
+
+    const { sub } = jwt.decode(
+      token,
+      process.env.SECRET_KEY,
+      (error, _) => {
+        if (error) {
+          return res.status(498).json({ message: "Invalid token" });
+        }
+      }
+    );
+
+    const guest = await GuestOperations.find({ email: sub });
+
+    if(guest[0].email === sub) {
+      const booking = await BookingOperations.find({ guest_id: guest[0]._id});
+
+      return res.status(200).json({ data: booking });
+    } else {
+      return res.status(401).json({ message: "Bookings are not available to your account"});
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error: " + error.message });
+  }
+}
+
 export const createBooking = async (req, res) => {
   const { type, startDate, endDate } = req.body;
   const token = req.headers.authorization;

@@ -46,6 +46,11 @@ const BookingOperations = {
     return bookingsList;
   },
 
+  find: async function(guest_id) {
+    const bookingsList = await Booking.find(guest_id);
+    return bookingsList;
+  },
+
   create: async function (booking) {
     const bookingCreated = await Booking.create(booking);
     return bookingCreated;
