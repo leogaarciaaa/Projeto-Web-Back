@@ -2,7 +2,7 @@ import { Router } from "express";
 import { verifyAdmin } from "../middlewares/verifyAdmin.js";
 import { verifyGuest } from "../middlewares/verifyGuest.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
-import { listFeedbacks, createFeedback } from "../controller/feedbackController.js";
+import { listFeedbacks, listFeedbacksByGuest, createFeedback } from "../controller/feedbackController.js";
 
 const router = Router();
 
