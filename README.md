@@ -33,10 +33,16 @@ Sistema de Hotelaria Desenvolvido utilizando Express
    ```
    
 5. **Instalar API**
-   Acesse a rota: localhost:3000/install para popular o banco de dados automaticamente
+   Acesse a rota abaixo para popular o banco de dados automaticamente:
+   ```bash
+   localhost:3000/install
+   ```
 
-6. **Acessar Documentação**
-   Para acessar a documentação swagger, acesse a rota localhost:3000/docs
+7. **Acessar Documentação**
+   Para acessar a documentação swagger, acesse a rota:
+   ```bash
+   localhost:3000/docs
+   ```
 
 # Importante
 
