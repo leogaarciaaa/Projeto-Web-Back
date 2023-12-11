@@ -9,7 +9,7 @@ import bcryptjs from "bcryptjs";
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/install', async (req, res) => {
   try {
     const nbDocsUser = await mongoose.model('User').countDocuments();
     const nbDocsGuest = await mongoose.model('Guest').countDocuments();
@@ -118,7 +118,5 @@ router.get('/', async (req, res) => {
     return res.status(500).json({ message: "Internal server error: " + error.message });
   }
 });
-
-
 
 export { router as installApiRoute };

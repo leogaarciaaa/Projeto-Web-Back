@@ -7,10 +7,10 @@ import { listBookings, listBookingsByGuest, createBooking, deleteBooking, update
 
 const router = Router();
 
-router.get('/list-all/:page/:limit', verifyToken, verifyAdmin, listBookings);
-router.get('/list/:page/:limit', verifyToken, verifyGuest, listBookingsByGuest);
-router.post('/create', verifyToken, verifyGuest, createBooking);
-router.put('/update/:id', verifyToken, verifyGuest, updateBooking);
-router.delete('/delete', verifyToken, verifyGuestOrAdmin, deleteBooking);
+router.get('/booking/list-all/:page/:limit', verifyToken, verifyAdmin, listBookings);
+router.get('/booking/list/:page/:limit', verifyToken, verifyGuest, listBookingsByGuest);
+router.post('/booking/create', verifyToken, verifyGuest, createBooking);
+router.put('/booking/update/:id', verifyToken, verifyGuest, updateBooking);
+router.delete('/booking/delete', verifyToken, verifyGuestOrAdmin, deleteBooking);
 
 export { router as bookingRoute };

@@ -8,6 +8,7 @@ import { guestRoute } from './routes/guest.js';
 import { roomRoute } from './routes/room.js';
 import { bookingRoute } from './routes/booking.js';
 import { feedbackRoute } from './routes/feedback.js';
+import { swaggerDocRoute } from './routes/docs.js';
 import { dbConnect } from "./database/db.js";
 import cors from "cors";
 
@@ -19,13 +20,14 @@ app.use(cookieParser());
 
 app.use(cors());
 
-app.use("/auth", AuthRoute);
-app.use("/install", installApiRoute);
-app.use("/user", userRoute);
-app.use("/guest", guestRoute);
-app.use("/room", roomRoute);
-app.use("/booking", bookingRoute);
-app.use("/feedback", feedbackRoute);
+app.use(AuthRoute);
+app.use(installApiRoute);
+app.use(userRoute);
+app.use(guestRoute);
+app.use(roomRoute);
+app.use(bookingRoute);
+app.use(feedbackRoute);
+app.use(swaggerDocRoute);
 
 await dbConnect();
 

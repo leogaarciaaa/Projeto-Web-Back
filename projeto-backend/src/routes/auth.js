@@ -5,10 +5,10 @@ import { verifyAdmin } from "../middlewares/verifyAdmin.js";
 
 const router = Router();
 
-router.post("/register", register);
-router.post("/login", login);
-router.post("/login-guest", loginGuest);
-router.post("/register-guest", registerGuest);
-router.post("/register-admin", verifyToken, verifyAdmin, registerAdmin);
+router.post("/auth/register", register);
+router.post("/auth/login", login);
+router.post("/auth/login-guest", loginGuest);
+router.post("/auth/register-guest", registerGuest);
+router.post("/auth/register-admin", verifyToken, verifyAdmin, registerAdmin);
 
 export { router as AuthRoute };

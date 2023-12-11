@@ -5,8 +5,8 @@ import { deleteUser, updateUser, updateUserAndAdmin } from "../controller/userCo
 
 const router = Router();
 
-router.delete("/delete", verifyToken, verifyAdmin, deleteUser);
-router.put("/update/:id", verifyToken, updateUser);
-router.put("/update-admin/:id", verifyToken, verifyAdmin, updateUserAndAdmin);
+router.delete("/user/delete", verifyToken, verifyAdmin, deleteUser);
+router.put("/user/update/:id", verifyToken, updateUser);
+router.put("/user/update-admin/:id", verifyToken, verifyAdmin, updateUserAndAdmin);
 
 export { router as userRoute };
