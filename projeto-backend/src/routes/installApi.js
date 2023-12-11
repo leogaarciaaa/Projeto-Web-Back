@@ -100,11 +100,20 @@ router.get('/', async (req, res) => {
     }
 
     let feedbackList = [
-      { }
+      { rating: 4, booking_id: createdBookings[0]._id, guest_id: createdGuests[0]._id },
+      { rating: 5, booking_id: createdBookings[1]._id, guest_id: createdGuests[0]._id },
+      { rating: 3, booking_id: createdBookings[2]._id, guest_id: createdGuests[1]._id },
+      { rating: 5, booking_id: createdBookings[3]._id, guest_id: createdGuests[2]._id },
+      { rating: 4, booking_id: createdBookings[4]._id, guest_id: createdGuests[3]._id },
+      { rating: 5, booking_id: createdBookings[5]._id, guest_id: createdGuests[4]._id },
     ];
 
+    let createdFeedbacks = [];
+    for(let i = 0; i < feedbackList.length; i++) {
+      createdFeedbacks.push(await FeedbackOperations.create(feedbackList[i]));
+    }
 
-    return res.status(201).json({ message: "API installed", users: createdUsers, userAdmins:  createdAdmins, rooms: createdRooms, bookings: createdBookings});
+    return res.status(201).json({ message: "API installed", users: createdUsers, userAdmins:  createdAdmins, rooms: createdRooms, bookings: createdBookings, feedbacks: createdFeedbacks});
   } catch (error) {
     return res.status(500).json({ message: "Internal server error: " + error.message });
   }

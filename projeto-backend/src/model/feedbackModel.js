@@ -26,12 +26,7 @@ const Feedback = mongoose.model('Feedback', feedbackSchema);
 
 const FeedbackOperations = {
   findAll: async function() {
-    const bookingsList = await Booking.find();
-    return bookingsList;
-  },
-
-  findByGuestAndPage: async function(guest_id, skip, limit) {
-    const feedbacksList = await Feedback.find({guest_id}).skip(skip).limit(limit);
+    const feedbacksList = await Feedback.find();
     return feedbacksList;
   },
 
@@ -40,34 +35,34 @@ const FeedbackOperations = {
     return feedbacksList;
   },
 
-  find: async function(booking_id) {
-    const bookingsList = await Feedback.find(booking_id);
-    return bookingsList;
+  find: async function(feedback_id) {
+    const feedbacksList = await Feedback.find(feedback_id);
+    return feedbacksList;
   },
 
   findAndPage: async function(guest_id, skip, limit) {
-    const bookingsList = await Booking.find(guest_id).skip(skip).limit(limit);
-    return bookingsList;
+    const feedbacksList = await Feedback.find(guest_id).skip(skip).limit(limit);
+    return feedbacksList;
   },
 
   create: async function (feedback) {
     const feedbackCreated = await Feedback.create(feedback);
-    return feedBackCreated;
+    return feedbackCreated;
   },
 
   findById: async function (id) {
-    const bookingFound = await Booking.findById(id);
-    return bookingFound;
+    const feedbackFound = await Feedback.findById(id);
+    return feedbackFound;
   },
 
   findByIdAndDelete: async function (id) {
-    const bookingFound = await Booking.findByIdAndDelete(id);
-    return bookingFound;
+    const feedbackFound = await Feedback.findByIdAndDelete(id);
+    return feedbackFound;
   },
 
   findByIdAndUpdate: async function (id, data) {
-    const bookingUpdated = await Booking.findByIdAndUpdate(id, data);
-    return bookingUpdated;
+    const feedbackUpdated = await Feedback.findByIdAndUpdate(id, data);
+    return feedbackUpdated;
   }
 }
 

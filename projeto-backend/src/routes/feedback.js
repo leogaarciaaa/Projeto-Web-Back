@@ -7,7 +7,7 @@ import { listFeedbacks, listFeedbacksByGuest, createFeedback } from "../controll
 const router = Router();
 
 router.get('/list-all/:page/:limit', listFeedbacks);
+router.get('/list/:page/:limit', verifyToken, verifyGuest, listFeedbacksByGuest);
 router.post('/create/:id', verifyToken, verifyGuest, createFeedback);
-router.get('/list-by-guest/:page/:limit', listFeedbacksByGuest);
 
 export { router as feedbackRoute };
