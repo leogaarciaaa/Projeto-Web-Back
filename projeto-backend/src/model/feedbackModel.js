@@ -10,7 +10,12 @@ const feedbackSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Booking',
       required: [true, 'Booking id is required'],
-    }
+    },
+    guest_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Guest',
+      required: [true, 'Guest id is required'],
+    },
   },
   {
     timestamps: true,
@@ -23,6 +28,11 @@ const FeedbackOperations = {
   findAll: async function() {
     const bookingsList = await Booking.find();
     return bookingsList;
+  },
+
+  findByGuestAndPage: async function(guest_id, skip, limit) {
+    const feedbacksList = await Feedback.find({guest_id}).skip(skip).limit(limit);
+    return feedbacksList;
   },
 
   findAllAndPage: async function(skip, limit) {

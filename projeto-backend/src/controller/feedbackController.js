@@ -22,12 +22,30 @@ export const listFeedbacks = async (req, res) => {
 }
 
 export const listFeedbacksByGuest = async (req, res) => {
+  const { guest_id } = req.body;
+  const page = parseInt(req.params.page);
+  const limit = parseInt(req.params.limit);
   try {
+    const skip = (page - 1) * limit;
+    if (limit !== 5 && limit !== 10 && limit !== 30) {
+      throw new Error(
+        "Please, select a limit of 5, 10 or 30 results per page."
+      );
+    }
 
+    const feedbacksByGuest = await FeedbackOperations.findByGuestAndPage(
+      guest_id,
+      skip,
+      limit
+    );
+
+    return res.status(200).json({ data: feedbacksByGuest });
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error: " + error.message });
+    return res
+      .status(500)
+      .json({ message: "Internal server error: " + error.message });
   }
-}
+};
 
 export const createFeedback = async (req, res) => {
   const { id } = req.params;
