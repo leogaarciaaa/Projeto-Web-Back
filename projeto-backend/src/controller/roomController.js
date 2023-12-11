@@ -3,6 +3,7 @@ import { UserOperations } from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
 export const listRooms = async (req, res) => {
+  //#swagger.tags = ['Room']
   const page = parseInt(req.params.page);
   const limit = parseInt(req.params.limit);
 
@@ -20,6 +21,7 @@ export const listRooms = async (req, res) => {
 }
 
 export const createRoom = async (req, res) => {
+  //#swagger.tags = ['Room']
   const { type, capacityNumber, pricePerNight } = req.body;
   const token = req.headers.authorization;
 
@@ -58,6 +60,7 @@ export const createRoom = async (req, res) => {
 }
 
 export const deleteRoom = async (req, res) => {
+  //#swagger.tags = ['Room']
   const { type } = req.body;
 
   try {
@@ -80,6 +83,7 @@ export const deleteRoom = async (req, res) => {
 }
 
 export const updateRoom = async (req, res) => {
+  //#swagger.tags = ['Room']
   const { id } = req.params;
 
   const { type, capacityNumber, pricePerNight } = req.body;

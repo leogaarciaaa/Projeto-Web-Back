@@ -4,6 +4,7 @@ import { FeedbackOperations } from "../model/feedbackModel.js";
 import jwt from "jsonwebtoken";
 
 export const listFeedbacks = async (req, res) => {
+  //#swagger.tags = ['Feedback']
   const page = parseInt(req.params.page);
   const limit = parseInt(req.params.limit);
 
@@ -22,6 +23,7 @@ export const listFeedbacks = async (req, res) => {
 }
 
 export const listFeedbacksByGuest = async (req, res) => {
+  //#swagger.tags = ['Feedback']
   const token = req.headers.authorization;
 
   const page = parseInt(req.params.page);
@@ -63,6 +65,7 @@ export const listFeedbacksByGuest = async (req, res) => {
 };
 
 export const createFeedback = async (req, res) => {
+  //#swagger.tags = ['Feedback']
   const { id } = req.params;
   const { rating } = req.body;
 

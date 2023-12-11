@@ -4,6 +4,7 @@ import { BookingOperations } from "../model/bookingModel.js";
 import jwt from "jsonwebtoken";
 
 export const listBookings = async (req, res) => {
+  //#swagger.tags = ['Booking']
   const page = parseInt(req.params.page);
   const limit = parseInt(req.params.limit);
 
@@ -22,6 +23,7 @@ export const listBookings = async (req, res) => {
 }
 
 export const listBookingsByGuest = async (req, res) => {
+  //#swagger.tags = ['Booking']
   const token = req.headers.authorization;
 
   const page = parseInt(req.params.page);
@@ -59,6 +61,7 @@ export const listBookingsByGuest = async (req, res) => {
 }
 
 export const createBooking = async (req, res) => {
+  //#swagger.tags = ['Booking']
   const { type, startDate, endDate } = req.body;
   const token = req.headers.authorization;
   try {
@@ -121,6 +124,7 @@ export const createBooking = async (req, res) => {
 }
 
 export const deleteBooking = async (req, res) => {
+  //#swagger.tags = ['Booking']
   const { id } = req.body;
   const token = req.headers.authorization;
 
@@ -160,6 +164,7 @@ export const deleteBooking = async (req, res) => {
 }
 
 export const updateBooking = async (req, res) => {
+  //#swagger.tags = ['Booking']
   const { id } = req.params;
   const { type, startDate, endDate } = req.body;
 

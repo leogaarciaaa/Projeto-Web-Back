@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { GuestOperations } from "../model/guestModel.js";
 
 export const listGuests = async (req, res) => {
+  //#swagger.tags = ['Guest']
   const page = parseInt(req.params.page);
   const limit = parseInt(req.params.limit);
 
@@ -20,6 +21,7 @@ export const listGuests = async (req, res) => {
 }
 
 export const deleteGuest = async (req, res) => {
+  //#swagger.tags = ['Guest']
   const { email } = req.body;
 
   try {
@@ -44,6 +46,7 @@ export const deleteGuest = async (req, res) => {
 };
 
 export const updateGuest = async (req, res) => {
+  //#swagger.tags = ['Guest']
   const { id } = req.params;
 
   const token = req.headers.authorization;

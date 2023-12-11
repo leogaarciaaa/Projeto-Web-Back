@@ -13,6 +13,9 @@
   "paths": {
     "/auth/register": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "parameters": [
           {
@@ -46,6 +49,9 @@
     },
     "/auth/login": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "parameters": [
           {
@@ -76,6 +82,9 @@
     },
     "/auth/login-guest": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "parameters": [
           {
@@ -106,6 +115,9 @@
     },
     "/auth/register-guest": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "parameters": [
           {
@@ -148,6 +160,9 @@
     },
     "/auth/register-admin": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "parameters": [
           {
@@ -195,6 +210,9 @@
     },
     "/booking/list-all/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Booking"
+        ],
         "description": "",
         "parameters": [
           {
@@ -236,6 +254,9 @@
     },
     "/booking/list/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Booking"
+        ],
         "description": "",
         "parameters": [
           {
@@ -277,6 +298,9 @@
     },
     "/booking/create": {
       "post": {
+        "tags": [
+          "Booking"
+        ],
         "description": "",
         "parameters": [
           {
@@ -324,6 +348,9 @@
     },
     "/booking/update/{id}": {
       "put": {
+        "tags": [
+          "Booking"
+        ],
         "description": "",
         "parameters": [
           {
@@ -380,6 +407,9 @@
     },
     "/booking/delete": {
       "delete": {
+        "tags": [
+          "Booking"
+        ],
         "description": "",
         "parameters": [
           {
@@ -431,6 +461,9 @@
     },
     "/feedback/list-all/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Feedback"
+        ],
         "description": "",
         "parameters": [
           {
@@ -458,6 +491,9 @@
     },
     "/feedback/list/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Feedback"
+        ],
         "description": "",
         "parameters": [
           {
@@ -499,6 +535,9 @@
     },
     "/feedback/create/{id}": {
       "post": {
+        "tags": [
+          "Feedback"
+        ],
         "description": "",
         "parameters": [
           {
@@ -546,6 +585,9 @@
     },
     "/guest/list-all/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Guest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -587,6 +629,9 @@
     },
     "/guest/delete": {
       "delete": {
+        "tags": [
+          "Guest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -628,6 +673,9 @@
     },
     "/guest/update/{id}": {
       "put": {
+        "tags": [
+          "Guest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -690,6 +738,9 @@
     },
     "/install": {
       "get": {
+        "tags": [
+          "Install"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -703,6 +754,9 @@
     },
     "/room/list-all/{page}/{limit}": {
       "get": {
+        "tags": [
+          "Room"
+        ],
         "description": "",
         "parameters": [
           {
@@ -730,6 +784,9 @@
     },
     "/room/create": {
       "post": {
+        "tags": [
+          "Room"
+        ],
         "description": "",
         "parameters": [
           {
@@ -777,6 +834,9 @@
     },
     "/room/update/{id}": {
       "put": {
+        "tags": [
+          "Room"
+        ],
         "description": "",
         "parameters": [
           {
@@ -830,6 +890,9 @@
     },
     "/room/delete": {
       "delete": {
+        "tags": [
+          "Room"
+        ],
         "description": "",
         "parameters": [
           {
@@ -871,6 +934,9 @@
     },
     "/user/delete": {
       "delete": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -912,6 +978,9 @@
     },
     "/user/update/{id}": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -962,6 +1031,9 @@
     },
     "/user/update-admin/{id}": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {

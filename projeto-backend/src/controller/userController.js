@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 
 
 export const deleteUser = async (req, res) => {
+  //#swagger.tags = ['User']
   const { email } = req.body;
 
   try {
@@ -28,6 +29,7 @@ export const deleteUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
+  //#swagger.tags = ['User']
   const { id } = req.params;
 
   const token = req.headers.authorization;
@@ -67,6 +69,7 @@ export const updateUser = async (req, res) => {
 
 
 export const updateUserAndAdmin = async (req, res) => {
+  //#swagger.tags = ['User']
 
   const { id } = req.params;
 

@@ -10,6 +10,7 @@ import bcryptjs from "bcryptjs";
 const router = Router();
 
 router.get('/install', async (req, res) => {
+  //#swagger.tags = ['Install']
   try {
     const nbDocsUser = await mongoose.model('User').countDocuments();
     const nbDocsGuest = await mongoose.model('Guest').countDocuments();

@@ -4,6 +4,7 @@ import { UserOperations } from "../model/userModel.js";
 import { GuestOperations } from "../model/guestModel.js";
 
 export const register = async (req, res) => {
+  //#swagger.tags = ['Auth']
   const { name, email, password } = req.body;
 
   try {
@@ -31,6 +32,7 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+  //#swagger.tags = ['Auth']
   const { email, password } = req.body;
 
   try {
@@ -62,6 +64,7 @@ export const login = async (req, res) => {
 
 
 export const registerAdmin = async (req, res) => {
+  //#swagger.tags = ['Auth']
   const { name, email, password } = req.body;
 
   try {
@@ -90,6 +93,7 @@ export const registerAdmin = async (req, res) => {
 
 
 export const registerGuest = async (req, res) => {
+  //#swagger.tags = ['Auth']
   const { name, email, cpf, birthDate, dependentGuestsNumber, password } = req.body;
 
   try {
@@ -119,6 +123,7 @@ export const registerGuest = async (req, res) => {
 }
 
 export const loginGuest = async (req, res) => {
+  //#swagger.tags = ['Auth']
   const { email, password } = req.body;
 
   try {
