@@ -1,2 +1,43 @@
 # Projeto-Web-Back
 Sistema de Hotelaria Desenvolvido utilizando Express
+
+# Guia de instalação e um de configuração
+
+**Guia de Instalação**
+
+1. **Clonar o Repositório:**
+   ```bash
+   git clone https://github.com/leogaarciaaa/Projeto-Web-Back.git
+   cd Projeto-Web-Back/
+   cd projeto-backend/
+   ```
+
+2. **Instalar Dependências:**
+   Certifique-se de ter o Node.js instalado. Execute o seguinte comando para instalar as dependências:
+   ```bash
+   npm install
+   ```
+   
+3. **Verificar porta:**
+   Por padrão, a aplicação irá rodar na porta 3000, mas você pode alterar no arquivo .env na raíz do projeto. Certifique-se de ter o MongoDB instalado na sua máquina antes de rodar
+
+4. **Configurar o Swagger:**
+   Digite o comando abaixo para gerar a documentação:
+   ```bash
+   npm run swagger-autogen
+   ```
+
+4. **Executar a Aplicação:**
+   ```bash
+   npm start
+   ```
+   
+5. **Instalar API**
+   Acesse a rota: localhost:3000/install para popular o banco de dados automaticamente
+
+6. **Acessar Documentação**
+   Para acessar a documentação swagger, acesse a rota localhost:3000/docs
+
+# Importante
+
+  Para acessar como Admin, é necessário criar uma conta de Admin e realizar o login. O mesmo vale para o acesso como Guest. O Admin pode criar novos quartos, excluir guests e usuários não-Admin, entre outras funções. O Guest pode criar novas reservas (bookings), atualizar seus dados, avaliar uma hospedagem (feedback), etc.
