@@ -1,7 +1,7 @@
 # Projeto-Web-Back
 Sistema de Hotelaria Desenvolvido utilizando Express
 
-# Guia de instalação e um de configuração
+# Guia de instalação e de configuração
 
 **Guia de Instalação**
 
